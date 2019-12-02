@@ -290,7 +290,7 @@ int main(int argc,const char* argv[]) {
 	}
 	else if(argc>2)
         printf("Warning: only one parameter is accepted\n");
-	char* extension = strrchr(argv[1],'.');
+	char* extension = strchr(argv[1],'.');
     if(extension) {
         if(strcmp(extension,".csv")) {
             printf("File must be a .csv file\n");
@@ -301,13 +301,7 @@ int main(int argc,const char* argv[]) {
         printf("Argument must be a file\n");
         return 0;
     }
-    char* extension = strchr(argv[1],'.');
-    if(extension) {
-        if(strcmp(extension,".csv")) {
-            printf("File must be a .csv file\n");
-            return 0;
-        }
-    }
+    
     result = read_lines(argv[1],&table,&num_lines,&num_columns,&table_str_length);
     if(result) {
         if(result==-1)
